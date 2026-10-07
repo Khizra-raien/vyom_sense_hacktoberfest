@@ -1,5 +1,4 @@
-<img width="3615" height="152" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/e42a3eaf-e9de-4c18-b5a0-6aee312351aa" />
-<div align="center">
+
 
 # VYOM+ Sense
 
@@ -32,7 +31,6 @@ A voucher type is not hiding in one keyword. It comes from how fields relate: wh
 | What comes out? | JSON and XLSX with `voucher_type`, `confidence`, `reason_codes`, `rationale` and `needs_review` per row. |
 
 ```mermaid
-<img width="1304" height="725" alt="image" src="https://github.com/user-attachments/assets/670922a6-5f4a-48b1-a288-cb96c7601830" />
 
 flowchart LR
     A["Excel rows<br/>(no voucher type)"] --> B["Normalize<br/>and clean"]
@@ -245,8 +243,6 @@ We split the work deliberately.
 ## 10. System Architecture
 
 ```mermaid
-<img width="1304" height="725" alt="image" src="https://github.com/user-attachments/assets/bd142996-6dc2-4fe9-bd92-4b74b180230f" />
-
 flowchart TD
     A["Excel input (.xlsx)"] --> B["Schema detection<br/>and normalization"]
     B --> C["Transaction context builder<br/>(row + batch-level context)"]
@@ -373,8 +369,6 @@ A small web UI (Streamlit) for upload, column-mapping review, reporting-entity o
 ## 12. Data / Information Flow
 
 ```mermaid
-<img width="1304" height="725" alt="image" src="https://github.com/user-attachments/assets/94d83da2-1c5c-40af-99d0-08b88a6b5f4a" />
-
 flowchart LR
     subgraph IN["Input"]
         X["Excel file<br/>(no voucher type)"]
@@ -436,8 +430,6 @@ We use a **small, bounded reasoning loop**, not an open-ended autonomous agent.
 Accounting classification needs predictable, auditable behaviour. An agent that freely chooses tools or loops until it is satisfied is hard to evaluate and hard to trust with financial data. A bounded loop does what we need with fixed cost.
 
 ```mermaid
-<img width="1304" height="725" alt="image" src="https://github.com/user-attachments/assets/55c7d3bd-7e37-4761-9a9e-4f64febc9303" />
-
 flowchart TD
     A["First-pass classification"] --> B{"Confidence and<br/>consistency check"}
     B -->|"Clear"| F["Final decision"]
